@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css" th:href="@{/css/util.css}">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css" th:href="@{/css/main.css}">
+</head>
+<body>	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="#" method="post" th:action="@{/register}" th:object="${user}">
+					<span class="login100-form-title p-b-26">
+						Rejestracja
+					</span>						
+					<div class="wrap-input100 validate-input" data-validate = "">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="text" th:field="*{firstName}" placeholder="Imię"required>										
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" th:field="*{lastName}" placeholder="Nazwisko"  required>					
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" th:field="*{address}" placeholder="Adres"  required>					
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" th:field="*{city}" placeholder="Miasto"  required>					
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" th:field="*{email}" type="email" placeholder="Email"  required>					
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" th:field="*{password}" type="password" placeholder="Hasło"  required>					
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" type="submit">
+								Rejestruj
+							</button>
+						</div>
+					</div>
+					<div class="text-center p-t-40">
+						<span class="txt1">
+							Nie masz konta?
+						</span>
+						<a class="txt2" href="#" th:href="@{/register}">
+							Rejetracja
+						</a>
+					</div>
+					
+					<div class="text-center p-t-10">
+					<a class="txt2" href="#" th:href="@{/loginform}">
+							Powrót
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

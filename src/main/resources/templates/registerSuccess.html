@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Rejestracja przebiegła pomyślnie</title>
+</head>
+<body>
+	<h1>Dziękujemy za rejestracje teraz możesz się zalogować!</h1>
+	<a href="#" th:href="@{/loginform}">Zaloguj się</a>
+	<script>
+        var timer = setTimeout(function() {
+            window.location='@{loginform}'
+        }, 3000);
+    </script>
+</body>
+</html>
