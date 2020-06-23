@@ -1,37 +1,39 @@
 package pl.project.model;
 
+
 import java.sql.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
-@Table(name = "repair")
 public class RepairRequest {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Long id;
-	private String describe;
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private String des;
 	private Date date;
-	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@OneToMany
 	private List<TypeOfEquipment> typeOfEquipments;
 	
-	public String getDescribe() {
-		return describe;
+	public Long getId() {
+		return id;
 	}
-	public void setDescribe(String describe) {
-		this.describe = describe;
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getDes() {
+		return des;
+	}
+	public void setDes(String des) {
+		this.des = des;
 	}
 	public Date getDate() {
 		return date;
@@ -47,7 +49,12 @@ public class RepairRequest {
 	}
 	@Override
 	public String toString() {
-		return "RepairRequest [id=" + id + ", describe=" + describe + ", date=" + date + ", typeOfEquipments="
-				+ typeOfEquipments + "]";
+		return "RepairRequest [id=" + id + ", des=" + des + ", date=" + date + ", typeOfEquipments=" + typeOfEquipments
+				+ "]";
 	}
+	
+	
+	
+	
+	
 }

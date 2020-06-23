@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,18 +12,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
 
 
 @Entity
-@Table(name = "users")
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_user")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Long id;
 	private String firstName;	
 	private String lastName;
@@ -36,10 +32,12 @@ public class User {
 	private String address;
 	private String city;
 	private String postalCode;
-	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)	
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	private Set<UserRole> roles = new HashSet<>();
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	private List<RepairRequest> repairRequests;
+	
+	
 	
 	
 	
@@ -97,13 +95,7 @@ public class User {
 	public void setRoles(Set<UserRole> roles) {
 		this.roles = roles;
 	}
-	public List<RepairRequest> getRepairRequests() {
-		return repairRequests;
-	}
-
-	public void setRepairRequests(List<RepairRequest> repairRequests) {
-		this.repairRequests = repairRequests;
-	}
+	
 
 	public Long getPhone() {
 		return phone;
@@ -115,7 +107,7 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", password=" + password + ", phone=" + phone + ", address=" + address + ", city=" + city
-				+ ", postalCode=" + postalCode + ", roles=" + roles + ", repairRequests=" + repairRequests + "]";
+				+ ", postalCode=" + postalCode + ", roles=" + roles +  "]";
 	}
 	
 

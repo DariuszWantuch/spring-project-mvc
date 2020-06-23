@@ -1,5 +1,7 @@
 package pl.project.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javassist.expr.NewArray;
 import pl.project.model.TypeOfEquipment;
 import pl.project.service.TypeOfEquipmentService;
 
@@ -22,8 +25,14 @@ public class TypeOfEquipmentController {
 		this.typeOfEquipmentService = typeOfEquipmentService;
 	}
 	
+	@GetMapping("/manageEquipment")
+	public String showEquipment(Model model) {
+		List<TypeOfEquipment> typeOfEquipments = typeOfEquipmentService.findAll();
+		model.addAttribute("typeOfEquipment", typeOfEquipments);
+		return "manageEquipmentForm";
+	}
 	@GetMapping("/equipment")
-	public String register(Model model) {
+	public String addEquipment(Model model) {	
 		model.addAttribute("typeofequipment", new TypeOfEquipment());
 		return "equipmentForm";
 	}

@@ -11,7 +11,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="#" method="post" th:action="@{/repairRequest}" th:object="${repairrequest}">
+				<form class="login100-form validate-form" action="#" method="post" th:action="@{/repairRequest}" th:object="${repairRequest}">
 					<span class="login100-form-title p-b-26">
 						Zgłoszenie naprawy
 					</span>						
@@ -20,13 +20,13 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" th:field="*{describe}"  placeholder="Opis"  required>					
+						<input class="input100" th:field="*{des}"  placeholder="Opis"  required>					
 					</div>																							
 					<div class="wrap-input100 validate-input" data-validate = "">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" th:field="*{date}" type="date" placeholder="Data"  required>					
+						<input class="input100" th:field="*{date}" type="date" placeholder="Data">					
 					</div>
 					<select>
                  		<option th:each="dropDownItem : ${typeOfEquipments}"

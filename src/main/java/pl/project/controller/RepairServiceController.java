@@ -27,12 +27,13 @@ public class RepairServiceController {
 		super();
 		this.repairRequestService = repairRequestService;
 		this.typeOfEquipmentService = typeOfEquipmentService;
+		
 	}
 	
 	@GetMapping("/repairRequest")
 	public String register(Model model) {
 		List<TypeOfEquipment> typeOfEquipments = typeOfEquipmentService.findAll();
-		model.addAttribute("repairrequest", new RepairRequest());
+		model.addAttribute("repairRequest", new RepairRequest());
 		model.addAttribute("typeOfEquipments", typeOfEquipments);
 		return "repairRequestForm";
 	}
