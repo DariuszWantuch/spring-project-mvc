@@ -14,6 +14,7 @@ public class UserRole {
 	private String role;
 	private String description;
 	
+	
 	public Long getId() {
 		return id;
 	}

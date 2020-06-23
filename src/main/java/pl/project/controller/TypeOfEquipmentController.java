@@ -29,7 +29,7 @@ public class TypeOfEquipmentController {
 	}
 	
 	@PostMapping("/equipment")
-	public String addUser(@ModelAttribute @Valid TypeOfEquipment typeOfEquipment,
+	public String addType(@ModelAttribute @Valid TypeOfEquipment typeOfEquipment,
 			BindingResult bindResult) {
 		if(bindResult.hasErrors())
 			return "equipmentForm";

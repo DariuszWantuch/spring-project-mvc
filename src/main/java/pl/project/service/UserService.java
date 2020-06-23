@@ -1,6 +1,10 @@
 package pl.project.service;
 
+import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +16,8 @@ import pl.project.repository.UserRoleRepository;
 @Service
 public class UserService {
 
+	@Autowired
+	JdbcTemplate template;
 	private static final String DEFAULT_ROLE = "ROLE_USER";
 	private UserRepository userRepository;
 	private UserRoleRepository roleRepository;
@@ -32,6 +38,19 @@ public class UserService {
 		this.roleRepository = roleRepository;
 	}
 
+	public List<User> findAll(){
+		return userRepository.findAll();	
+	}
+	
+	public User getUser(Long id) {
+		return userRepository.findById(id).get();
+	}
+	public UserRole getRole(Long id) {
+		return roleRepository.findById(id).get();
+	}
+	public void delete(Long id) {
+		userRepository.deleteById(id);
+	}
 	public void addWithDefaultRole(User user) {
 		UserRole defaultRole = roleRepository.findByRole(DEFAULT_ROLE);
 		user.getRoles().add(defaultRole);

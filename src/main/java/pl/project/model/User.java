@@ -32,10 +32,11 @@ public class User {
 	private String email;
 	@NotNull
 	private String password;
+	private Long phone;
 	private String address;
 	private String city;
 	private String postalCode;
-	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)	
 	private Set<UserRole> roles = new HashSet<>();
 	@OneToMany
 	private List<RepairRequest> repairRequests;
@@ -104,12 +105,19 @@ public class User {
 		this.repairRequests = repairRequests;
 	}
 
+	public Long getPhone() {
+		return phone;
+	}
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", address=" + address + ", city=" + city + ", postalCode=" + postalCode
-				+ ", roles=" + roles + ", repairRequests=" + repairRequests + "]";
+				+ ", password=" + password + ", phone=" + phone + ", address=" + address + ", city=" + city
+				+ ", postalCode=" + postalCode + ", roles=" + roles + ", repairRequests=" + repairRequests + "]";
 	}
+	
 
 	
 	

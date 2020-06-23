@@ -12,17 +12,20 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "repair")
 public class RepairRequest {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	public Long id;
-	public String describe;
-	public Date date;
+	private Long id;
+	private String describe;
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private Date date;
 	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-	public List<TypeOfEquipment> typeOfEquipments;
+	private List<TypeOfEquipment> typeOfEquipments;
 	
 	public String getDescribe() {
 		return describe;

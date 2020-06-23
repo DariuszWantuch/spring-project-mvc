@@ -13,14 +13,14 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" action="#" method="post" th:action="@{/repairRequest}" th:object="${repairrequest}">
 					<span class="login100-form-title p-b-26">
-						Rejestracja
+						Zgłoszenie naprawy
 					</span>						
 					
 					<div class="wrap-input100 validate-input" data-validate = "">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" th:field="*{describe}" placeholder="Opis"  required>					
+						<input class="input100" th:field="*{describe}"  placeholder="Opis"  required>					
 					</div>																							
 					<div class="wrap-input100 validate-input" data-validate = "">
 						<span class="btn-show-pass">
@@ -28,12 +28,11 @@
 						</span>
 						<input class="input100" th:field="*{date}" type="date" placeholder="Data"  required>					
 					</div>
-					<div class="wrap-input100 validate-input" data-validate = "">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" th:field="*{typeOfEquipments}" placeholder="Typ sprzętu"  required>					
-					</div>
+					<select>
+                 		<option th:each="dropDownItem : ${typeOfEquipments}"
+                                 th:value="${dropDownItem.name}"
+                                 th:text="${dropDownItem.name}" />
+             		</select>
 					
 					
 
@@ -41,21 +40,14 @@
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn" type="submit">
-								Rejestruj
+								Dodaj zgłoszenie
 							</button>
 						</div>
 					</div>
-					<div class="text-center p-t-40">
-						<span class="txt1">
-							Nie masz konta?
-						</span>
-						<a class="txt2" href="#" th:href="@{/register}">
-							Rejetracja
-						</a>
-					</div>
+					
 					
 					<div class="text-center p-t-10">
-					<a class="txt2" href="#" th:href="@{/loginform}">
+					<a class="txt2" href="#" th:href="@{/secured}">
 							Powrót
 						</a>
 					</div>
