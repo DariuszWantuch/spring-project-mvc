@@ -4,7 +4,9 @@ package pl.project.model;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +22,7 @@ public class RepairRequest {
 	private Long id;
 	private String des;
 	private Date date;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	private List<TypeOfEquipment> typeOfEquipments;
 	
 	public Long getId() {

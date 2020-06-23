@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javassist.expr.NewArray;
 import pl.project.model.TypeOfEquipment;
 import pl.project.service.TypeOfEquipmentService;
 

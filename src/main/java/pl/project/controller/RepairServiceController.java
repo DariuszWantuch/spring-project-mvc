@@ -48,4 +48,13 @@ public class RepairServiceController {
 			return "addRequestSuccess";
 		}
 	}
+	
+	@GetMapping("/manageRequest")
+	public String showRepair(Model model) {
+		List<RepairRequest> repair = repairRequestService.findAll();	
+		model.addAttribute("repairRequest", repair);
+		return "manageRequestForm";
+	}
+	
+	
 }

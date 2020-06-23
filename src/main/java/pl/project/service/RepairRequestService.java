@@ -1,5 +1,7 @@
 package pl.project.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import pl.project.repository.RepairRequestRepository;
 public class RepairRequestService {
 	
 	private RepairRequestRepository repairRequestRepository;
+
 	
 	@Autowired
 	public void setRepairRequestRepository(RepairRequestRepository repairRequestRepository) {
@@ -18,9 +21,11 @@ public class RepairRequestService {
 	}
 	
 	
-	public void addRequest(RepairRequest repairRequest) {
+	public void addRequest(RepairRequest repairRequest) {		
 		repairRequestRepository.save(repairRequest);
 	}
 	
-
+	public List<RepairRequest> findAll(){
+		return repairRequestRepository.findAll();
+	}
 }
